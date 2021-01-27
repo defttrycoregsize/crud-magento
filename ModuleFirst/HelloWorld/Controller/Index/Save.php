@@ -64,10 +64,6 @@ class Save extends Action
             {
                 $this->post->setId($_POST['id']) ;
             }
-            else
-            {
-                $this->post->setId('');
-            }
 
             $this->postResourceModel->save($model);
 
