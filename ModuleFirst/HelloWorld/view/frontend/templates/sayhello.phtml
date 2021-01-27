@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @var \ModuleFirst\HelloWorld\Block\Display $block
+ */
+
+?>
+
+<style>
+    table {  font-family: arial, sans-serif;  width: 100%;  margin-top: 30px;}
+    td, th {  border: 1px solid black;  text-align: left;  padding: 8px;  }
+    tr:nth-child(even) { background-color: #f2f2f2; }
+    .post-id{width:2%} .post-name{width:30%}
+
+</style>
+
+<table>
+    <tr>
+        <th class="post-id">Id</th>
+        <th class="post-name">Name</th>
+        <th>Content</th>
+        <th >Operation</th>
+    </tr>
+    <?php
+    foreach ($block->getPostCollection() as $key=>$post){
+        echo '<tr>
+                    <td>'.$post->getId().'</td>
+                    <td>'.$post->getName().'</td>
+                    <td>'.$post->getContent().'</td>
+                    <td>
+                    <a style="margin-left:15px" href="'.$block->getUrl('helloworld/index/edit').'id/'.$post->getData('id').'">Sửa</a>
+                    <a style="margin-left:15px" href="'.$block->getUrl('helloworld/index/delete').'id/'.$post->getData('id').'">Xóa</a>
+                    <a style="margin-left:15px" href="'.$block->getUrl('helloworld/index/add').'">Thêm</a>
+                    </td>
+                  </tr>';
+    }
+    ?>
+</table>
+
+</body>
+</html>

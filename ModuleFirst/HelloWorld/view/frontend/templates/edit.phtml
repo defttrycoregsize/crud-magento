@@ -1,0 +1,17 @@
+<h1>Edit</h1>
+<form method='post' action='<?php echo $block->getUrl('helloworld/index/save') ?>'>
+    <div class="form-group">
+        <label for="title">Name</label>
+        <input type="hidden" name="id" value="<?php echo $block->getEditRecord()->getId(); ?>">
+        <input type = "text" class="form-control" id = "title" placeholder = "Enter a title" name = "name"
+               value = "<?php echo $block->getEditRecord()->getName(); ?>">
+
+    </div>
+
+    <div class="form-group">
+        <label for="description">Content</label>
+        <input type="text" class="form-control" id="description" placeholder="Enter a description" name="content"
+        value="<?php echo $block->getEditRecord()->getContent(); ?>">
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
